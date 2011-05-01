@@ -226,8 +226,8 @@ class ConstantContact{
         $ext = '';
         if(is_string($emailAddress)){$ext = '?email='.$emailAddress;}
         if(is_array($emailAddress)){
-            for($i=1; $i<count($emailAddress); $i++){
-                $ext .= ($i==1) ? '?email='.$emailAddress[$i] : '&email='.$emailAddress[$i];
+            for($i=0; $i<count($emailAddress); $i++){
+                $ext .= ($i==0) ? '?email='.$emailAddress[$i] : '&email='.$emailAddress[$i];
             }
         }
         $ContactsCollection = new ContactsCollection($this->CTCTRequest);
