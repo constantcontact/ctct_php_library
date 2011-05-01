@@ -937,23 +937,9 @@ class CTCTDataStore {
     }
     function addUser($user){
         $_SESSION['users'][$user['username']] = $user;
-        /*
-        try{
-            $conn = mysql_connect('DATABASE', 'USERNAME', 'PASSWORD');
-            mysql_select_db('oauth', $conn);
-            mysql_query("INSERT INTO oauth.users (username, token, secret) VALUES ('".$user['username']."','".$user['key']."','".$user['secret']."')");
-            mysql_close($conn);
-            if(mysql_error()) { throw new Exception('Error adding user to datastore');}
-        } catch (Exception $e){
-            die($e->getMessage());
-        }
-        return true;
-
-         */
     }
 
     function lookupUser($username){
-
         try{
             if(isset($_SESSION['users'])){
                 foreach ($_SESSION['users'] as $user){
@@ -968,23 +954,6 @@ class CTCTDataStore {
             echo 'OAuth Exception: '.$e->getMessage();
         }
         return $returnUser;
-         /*
-        try{
-            $conn = mysql_connect('DATABASE', 'USERNAME', 'PASSWORD');
-            mysql_select_db('oauth' , $conn);
-            $sqlQuery = mysql_query("SELECT username, token, secret FROM oauth.users WHERE username = '".$username."'");
-            while($row = mysql_fetch_array($sqlQuery)){
-                $user['username'] = $row['username'];
-                $user['key'] = $row['token'];
-                $user['secret'] = $row['secret'];
-            }
-            if(empty($user)){throw new Exception('Username '.$username.' not found in datastore');}
-        } catch (Exception $e){
-            die($e->getMessage());
-        }
-        return $user;
-
-         */
     }
 
     function lookup_consumer($consumer_key) {
