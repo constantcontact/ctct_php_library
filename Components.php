@@ -2,6 +2,7 @@
 abstract class CCObject{
 	/**
 	 * Validate an object to check that all required fields have been supplied
+	 * @params array $params - object property names to reference for validation before HTTP requests
 	 * @return void
 	 */
 	protected function validate(Array $params){
