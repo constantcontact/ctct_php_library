@@ -1,35 +1,23 @@
 <?php
 abstract class CCObject{
-	
-	public $requiredFields;
-	
-	/**
-     * Constructor
-     * @param array $params - Property names of required fields, used for validation
-     */
-	public function __construct(Array $params){
-		foreach($params as $field){
-			$this->requiredFields[] = $field;
-		}	
-	}
-	
 	/**
 	 * Validate an object to check that all required fields have been supplied
 	 * @return void
 	 */
-	protected function validate(){
+	protected function validate(Array $params){
 		try{
-			foreach($this->requiredFields as $field){
+			foreach($params as $field){
 				if(empty($this->$field)){
 					throw new CTCTException("Constant Contact ".get_class($this)." Error: '".$field."' was required but not supplied");
 				}
 			}
 		} catch (CTCTException $e){
 			$e->generateError();
-		}
-		
+		}	
 	}
 }
+	
+
 
 class ContactList extends CCObject{
     public $contactCount;
@@ -46,7 +34,6 @@ class ContactList extends CCObject{
      * @param array $params - associative array of properties/values
      */
     public function __construct($params = array()){
-    	parent::__construct(array('name', 'id'));
         $this->contactCount = (isset($params['contactCount'])) ? $params['contactCount'] : '';
         $this->displayOnSignup = (isset($params['displayOnSignup'])) ? $params['displayOnSignup'] : '';
         $this->id = (isset($params['id'])) ? $params['id'] : 'data:,';
@@ -79,7 +66,7 @@ class ContactList extends CCObject{
      * @return SimpleXMLElement
      */
     public function createXml(){
-    	$this->validate();
+    	$this->validate(array('name', 'id'));
         $xml_string = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><entry xmlns='http://www.w3.org/2005/Atom'></entry>";
         $xml = simplexml_load_string($xml_string);
         $xml->addChild("id", $this->id);
@@ -157,7 +144,6 @@ class Contact extends CCObject{
      * @param array $params - associative array of properties/values
      */
     public function __construct($params = array()){
-    	parent::__construct(array('emailAddress', 'lists'));
         $this->link = (isset($params['link'])) ? $params['link'] : '';
         $this->id = (isset($params['id'])) ? $params['id'] : 'data:,';
         $this->updated = (isset($params['updated'])) ? $params['updated'] : '';
@@ -272,7 +258,7 @@ class Contact extends CCObject{
      * @return SimpleXMLElement
      */
     public function createXml(){
-    	$this->validate();
+    	$this->validate(array('emailAddress', 'lists'));
         $update_date = date("Y-m-d").'T'.date("H:i:s").'+01:00';
         $xml_string = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><entry xmlns='http://www.w3.org/2005/Atom'></entry>";
         $xml_object = simplexml_load_string($xml_string);
@@ -388,7 +374,6 @@ class Campaign extends CCObject{
      * @param array $params - associative array of properties/values
      */
     public function __construct($params=array()){
-    	parent::__construct(array('emailContentFormat', 'textVersionContent', 'name', 'subject', 'id'));
         $this->name = (isset($params['name'])) ? $params['name'] : '';
         $this->id = (isset($params['id'])) ? $params['id'] : 'data:,';
         $this->link = (isset($params['link'])) ? $params['link'] : '';
@@ -444,7 +429,7 @@ class Campaign extends CCObject{
      * @return SimpleXMLElement
      */
     public function createXml(){
-    	$this->validate();
+    	$this->validate(array('emailContentFormat', 'textVersionContent', 'name', 'subject', 'id'));
         $xml = simplexml_load_string("<?xml version='1.0' encoding='UTF-8'?><entry xmlns='http://www.w3.org/2005/Atom' />");
         $link = $xml->addChild("link");
         $link->addAttribute('href', '/ws/customers/customer/campaigns');
@@ -638,7 +623,6 @@ class Folder extends CCObject{
      * @param array $params - associative array of properties/values
      */
     public function __construct($params = array()){
-    	parent::__construct(array('name','id'));
         $this->name = (isset($params['name'])) ? $params['name'] : '';
         $this->link = (isset($params['link'])) ? $params['link'] : '';
         $this->id = (isset($params['id'])) ? $params['id'] : '';
@@ -662,7 +646,7 @@ class Folder extends CCObject{
      * @return SimpleXMLElement
      */
     public function createXml(){
-    	$this->validate();
+    	$this->validate(array('name','id'));
         $xml = simplexml_load_string("<?xml version='1.0' encoding='UTF-8' standalone='yes'?><atom:entry xmlns:atom='http://www.w3.org/2005/Atom'/>");
         $content = $xml->addChild("content");
         $folder = $content->addChild("Folder", "", "");
@@ -691,7 +675,6 @@ class Image extends CCObject{
      * @param array $params - associative array of properties/values
      */
     public function __construct($params = array()){
-    	parent::__construct(array('name', 'id'));
         $this->name = (isset($params['name'])) ? $params['name'] : '';
         $this->link = (isset($params['link'])) ? $params['link'] : '';
         $this->id = (isset($params['id'])) ? $params['id'] : '';
@@ -734,7 +717,7 @@ class Image extends CCObject{
      * @return SimpleXMLElement
      */
     public function createXml(){
-    	$this->validate();
+    	$this->validate(array('name', 'id'));
         $xml = simplexml_load_string("<?xml version='1.0' encoding='UTF-8' standalone='yes'?><atom:entry xmlns:atom='http://www.w3.org/2005/Atom'/>");
         $entry = $xml->asXML();
         return $entry;
@@ -754,7 +737,6 @@ class VerifiedAddress extends CCObject{
      * @param array $params - associative array of properties/values
      */
     public function __construct($params = array()){
-    	parent::__construct(array('name', 'id'));
         $this->email = (isset($params['email'])) ? $params['email'] : '';
         $this->status = (isset($params['status'])) ? $params['status'] : '';
         $this->verifiedTime = (isset($params['verifiedTime'])) ? $params['verifiedTime'] : '';
@@ -1372,7 +1354,7 @@ class CampaignEvent{
     }
 }
 
-class Schedule{
+class Schedule extends CCObject{
     public $link;
     public $id;
     public $updated;
@@ -1388,6 +1370,7 @@ class Schedule{
     }
     
     public function createXml(){
+    	$this->validate(array('time'));
         $xml = simplexml_load_string("<?xml version='1.0' encoding='UTF-8' standalone='yes'?><entry xmlns='http://www.w3.org/2005/Atom'/>");
         $linkNode = $xml->addChild("link");
         $linkNode->addAttribute('href', $this->campaign->link.'/schedules/1');
