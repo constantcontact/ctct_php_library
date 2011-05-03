@@ -1415,18 +1415,6 @@ class Schedule{
 }
 
 class Utility{
-    public static $defaultCampaignContent = '&lt;html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"
-xmlns:cctd="http://www.constantcontact.com/cctd">
-&lt;body>&lt;CopyRight>Copyright (c) 1996-2009 Constant Contact. All rights reserved.  Except as permitted under a
-separate written agreement with Constant Contact, neither the Constant Contact software, nor any content that appears
-on any Constant Contact site, including but not limited to, web pages, newsletters, or templates may be reproduced,
-republished, repurposed, or distributed without the prior written permission of Constant Contact.  For inquiries
-regarding reproduction or distribution of any Constant Contact material, please contact joesflowers@example.com.
-&lt;/CopyRight>&lt;OpenTracking/>&lt;!--  Do NOT delete previous line if you want to get statistics on the number of
-opened emails -->&lt;CustomBlock name="letter.intro" title="Personalization">&lt;Greeting/>&lt;/CustomBlock>&lt;/body>
-&lt;/html>';
-
-    public static $defaultCampaignText = '&lt;Text>This is the text version.&lt;/Text>';
     /**
      * Find the URL of the provided object
      * @static
