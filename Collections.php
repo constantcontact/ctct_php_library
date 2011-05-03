@@ -26,8 +26,14 @@ class ActivitiesCollection extends Collection{
         parent::__construct($CTCTRequest, '/ws/customers/'.$CTCTRequest->username.'/activities');
     }
 
+	/**
+     * Add multiple contacts at once
+	 * @param string $postString - urlencoded string of data
+	 * @return bool
+     */
     public function bulkAddContacts($postString){
-        return $this->CTCTRequest->makeRequest($this->uri, 'POST', $postString, 'application/x-www-form-urlencoded');
+        $response =  $this->CTCTRequest->makeRequest($this->uri, 'POST', $postString, 'application/x-www-form-urlencoded');
+		return ($response['info']['http_code'] == 204) ? true : false;
     }
     
 }

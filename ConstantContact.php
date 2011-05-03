@@ -527,7 +527,11 @@ class ConstantContact{
         return $EventsCollection->getRegistrantDetails($this->CTCTRequest->baseUri.$Registrant->link);
     }
 
-    //TODO: Bulk add needs to be done better, possibly add associate array option
+    /**
+     * Add multiple contacts at once
+	 * @param string $postString - urlencoded string of data
+	 * @return bool
+     */
     public function bulkAddContacts($postString){
         $ActivitiesCollection = new ActivitiesCollection($this->CTCTRequest);
         return $ActivitiesCollection->bulkAddContacts($postString);
