@@ -260,7 +260,7 @@ class Contact extends CCObject{
      */
     public function createXml(){
     	$this->validate(array('emailAddress', 'lists'));
-        $update_date = date("Y-m-d").'T'.date("H:i:s").'+01:00';
+        $update_date = '2008-07-23T14:21:06.407Z';
         $xml_string = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><entry xmlns='http://www.w3.org/2005/Atom'></entry>";
         $xml_object = simplexml_load_string($xml_string);
         $xml_object->addChild("title");
@@ -438,7 +438,7 @@ class Campaign extends CCObject{
         $xml->addChild("id", $this->id);
         $title = $xml->addChild("title", $this->name);
         $title->addAttribute("type", "text");
-        $xml->addChild("updated", date("Y-m-d").'T'.date("H:i:s").'+01:00');
+        $xml->addChild("updated", '2009-10-19T18:34:53.105Z');
         $author = $xml->addChild("author");
         $author->addChild("name", "Constant Contact");
         $content = $xml->addChild("content");
