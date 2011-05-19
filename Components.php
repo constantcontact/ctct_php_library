@@ -1440,6 +1440,7 @@ class CTCTException extends Exception{
     }
 
     private function logError($errorText, $file="error.log"){
+        date_default_timezone_set('America/New_York');
         $message = "Constant Contact Exception -- ".date("F j, Y, g:i:sa")."\n".$errorText."\n";
         $message .= "Stack Trace: ".$this->getTraceAsString()."\n";
         error_log($message."\n", 3, $file);
