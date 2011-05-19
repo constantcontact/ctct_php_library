@@ -256,7 +256,7 @@ class ContactsCollection extends Collection{
             if(in_array($List->name, $listTypes)){$ext .= '&listtype='.strtolower(str_replace(' ', '-', $List->name));}
             else{$ext .= '&listid='.substr(strrchr($List->id, "/"), 1);}
         } catch (CTCTException $e){
-            echo $e->generateError();
+            $e->generateError();
         }
         return $this->getContacts($ext);
     }
@@ -331,7 +331,7 @@ class CampaignsCollection extends Collection{
             }
             $campaignsCollection['nextLink'] = Utility::findNextLink($parsedResponse);
         } catch (CTCTException $e) {
-            echo $e->generateError();
+            $e->generateError();
         }
         return ($campaignsCollection['campaigns']) ? $campaignsCollection : false;
     }
