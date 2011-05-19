@@ -1070,7 +1070,7 @@ class CTCTRequest{
                 $return = $return;
             }
         } catch(CTCTException $e) {
-            echo $e->getMessage();
+            echo $e->generateError();
         }
         return $return;
     }
