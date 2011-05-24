@@ -511,6 +511,7 @@ class LibraryCollection extends Collection{
      */
     public function uploadImage($imageLocation, $folderUrl){
         $imageName = substr(strrchr($imageLocation, '\\'), 1);
+        if($imageName == false) { $imageName = $imageLocation; }
         $imageFormat = substr(strrchr($imageName, '.'), 1);
         $boundary = "---------------------".substr(md5(rand(0,32000)), 0, 10);
         try{
