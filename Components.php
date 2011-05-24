@@ -647,11 +647,11 @@ class Folder extends CCObject{
      * @return SimpleXMLElement
      */
     public function createXml(){
-    	$this->validate(array('name','id'));
+    	$this->validate(array('name'));
         $xml = simplexml_load_string("<?xml version='1.0' encoding='UTF-8' standalone='yes'?><atom:entry xmlns:atom='http://www.w3.org/2005/Atom'/>");
         $content = $xml->addChild("content");
         $folder = $content->addChild("Folder", "", "");
-        $nameNode = $folder->addChild("Name", $this->name, "");
+        $folder->addChild("Name", $this->name, "");
         $entry = $xml->asXML();
         return $entry;
     }
