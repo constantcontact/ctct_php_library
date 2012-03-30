@@ -570,9 +570,9 @@ class Campaign extends CCObject{
         $campaign['greetingName'] = (string) $parsedReturn->content->Campaign->GreetingName;
         $campaign['greetingString'] = (string) $parsedReturn->content->Campaign->GreetingString;
         $campaign['orgName'] = (string) $parsedReturn->content->Campaign->OrganizationName;
-        $campaign['orgAddress_1'] = (string) $parsedReturn->content->Campaign->OrganizationAddress1;
-        $campaign['orgAddress_2'] = (string) $parsedReturn->content->Campaign->OrganizationAddress2;
-        $campaign['orgAddress_3'] = (string) $parsedReturn->content->Campaign->OrganizationAddress3;
+        $campaign['orgAddr1'] = (string) $parsedReturn->content->Campaign->OrganizationAddress1;
+        $campaign['orgAddr2'] = (string) $parsedReturn->content->Campaign->OrganizationAddress2;
+        $campaign['orgAddr3'] = (string) $parsedReturn->content->Campaign->OrganizationAddress3;
         $campaign['orgCity'] =(string)  $parsedReturn->content->Campaign->OrganizationCity;
         $campaign['orgState'] = (string) $parsedReturn->content->Campaign->OrganizationState;
         $campaign['orgInternationalState'] = (string) $parsedReturn->content->Campaign->OrganizationInternationalState;

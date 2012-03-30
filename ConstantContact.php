@@ -20,12 +20,17 @@ class ConstantContact{
      * @return void
      */
     public function __construct($authType, $apiKey, $username, $param){
+    	
+    	// Set username to the instance so we can use it if neccessary
+    	$this->username = $username;
+    	
         try{
         $this->authType = strtolower($authType);
-        if($this->authType != 'basic' && $this->authType != 'oauth'){
+        if($this->authType != 'basic' && $this->authType != 'oauth' && $this->authType != 'oauth2'){
             throw new CTCTException('Authentication Error: type '.$this->authType.' is not valid');
         };
         $this->CTCTRequest = new CTCTRequest($this->authType, $apiKey, $username, $param);
+ 
         } catch (CTCTException $e){
             $e->generateError();
         }
@@ -224,10 +229,10 @@ class ConstantContact{
      */
     public function searchContactsByEmail($emailAddress){
         $ext = '';
-        if(is_string($emailAddress)){$ext = '?email='.urlencode($emailAddress);}
+        if(is_string($emailAddress)){$ext = '?email='.$emailAddress;}
         if(is_array($emailAddress)){
             for($i=0; $i<count($emailAddress); $i++){
-                $ext .= ($i==0) ? '?email='.urlencode($emailAddress[$i]) : '&email='.urlencode($emailAddress[$i]);
+                $ext .= ($i==0) ? '?email='.$emailAddress[$i] : '&email='.$emailAddress[$i];
             }
         }
         $ContactsCollection = new ContactsCollection($this->CTCTRequest);
