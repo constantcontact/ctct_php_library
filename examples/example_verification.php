@@ -6,7 +6,7 @@ session_start();
 $api_key = $_GET['apiKey']; // API Key
 $consumer_secret = $_GET['secret']; // Consumer Secret
 $_SESSION['return'] = $_GET['return'];
-$callback_url = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+$callback_url = 'http://'.$_SERVER['SERVER_NAME'].(($_SERVER['SERVER_PORT'] != '80') ? ':'.$_SERVER['SERVER_PORT'] : '') .$_SERVER['REQUEST_URI'];
 
 // Instantiate ConstantContact class with the key and secret from ConstantContact.php
 $CTCTOAuth = new CTCTOAuth($api_key, $consumer_secret, $callback_url);
