@@ -325,7 +325,7 @@ class ConstantContact{
     public function getCampaignOptOuts(Campaign $Campaign, $page=null){
         $CampaignsCollection = new CampaignsCollection($this->CTCTRequest);
         $url = ($page) ? $this->CTCTRequest->baseUri.$page : $this->CTCTRequest->baseUri.$Campaign->link.'/events/optouts';
-        return $CampaignsCollection->getCampaignEvents($url, 'OptOutEvent');
+        return $CampaignsCollection->getCampaignEvents($url, 'OptoutEvent');
     }
 
     /**
