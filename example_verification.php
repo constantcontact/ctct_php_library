@@ -24,6 +24,6 @@ if(isset($_SESSION["backto"]))
 header('Location:' . $returnURL);
 ?>
 
-
-<a href="https://ryandavis.co/CTCT-OAuth2/index.php">You have
+// Link back to index.php when $returnURL not set
+<a href="index.php">You have
 	authenticated, Go back</a>
