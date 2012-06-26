@@ -45,7 +45,7 @@
 	<body>
 		<h1>OAuth 2.0 Example</h1>
 	
-		<h3>Click the link below to authorize your application to access your Constant Contact account resources through this PHP Wrapper Library, and obtain an access token that will be used to authenticate other API Requests made within the current session. The Wrapper Library will store the Authentication data in the PHP $_SESSION array, by default.</h3>
+		<h3>Click the link below to authorize your application to access your Constant Contact account resources through this PHP Wrapper Library, and obtain an access token that will be used to authenticate other API Requests made within the current session. The Wrapper Library will store the Authentication data in the PHP $_SESSION array by default.</h3>
 		
 		<h3>Developers should store the authentication data securely on their server and include code in application scripts to restore this to the $_SESSION array when the base application script is executed, to avoid the need to re-authenticate when applications scripts are executed at the start of each new session.</h3>
 		
