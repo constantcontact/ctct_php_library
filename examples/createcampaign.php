@@ -4,6 +4,8 @@ require_once('../ConstantContact.php');
 require_once('../config.php');
 
 # This example is intended to be used with the OAuth 2.0 example_verification.php script that is distributed in the root folder of the Constant Contact PHP Wrapper Library.
+# The full url for the example_verification.php script should be used as the Redirect URI in the settings for your API Key, which can be accessed and updated here: http://community.constantcontact.com/t5/Documentation/API-Keys/ba-p/25015.
+# The example_verification.php url must also be used for the $verificationURL value in config.php file for the wrapper libary (the API Key Redirect URI, and the script use to carry out the OAuth 2.0 flow must be the same, per OAuth 2.0 standards). 
 # The code below checks to see if the wrapper library has a user in the datastore that has been authorized during the current session.
 # If so, a form is loaded, and a request to create an email campaign is executed when the form is submitted.
 # An object created from the XML in the API response is then echoed below the form, or an HTTP status code/error will be displayed.
