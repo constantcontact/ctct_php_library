@@ -74,29 +74,27 @@ if($username){
     <input type="submit" name="submit" value="Create Campaign" /><br />
 </form>
 
-<?php
-    
-	if(isset($_POST['campaign_name'])){
+<?ph
+
+    if(isset($_POST['campaign_name'])){
         $Campaign = new Campaign();
         $Campaign->name = $_POST['campaign_name'];
         $Campaign->subject = $_POST['subject_line'];
-		$Campaign->fromName = $_POST['from_name'];
-		$Campaign->vawp = $_POST['webpage_version'];
-		$Campaign->vawpText = $_POST['webpage_version_text'];
-		$Campaign->vawpLinkText = $_POST['webpage_link_text'];
-		$Campaign->permissionReminder = $_POST['permission_reminder'];
-		$Campaign->permissionReminderText = $_POST['permission_reminder_text'];
-		$Campaign->incForwardEmail = $_POST['forward_link'];
-		$Campaign->forwardEmailLinkText = $_POST['forward_link_text'];
-		$Campaign->incSubscribeLink = $_POST['subscribe_link'];
-		$Campaign->subscribeLinkText = $_POST['subscribe_link_text'];
+	$Campaign->fromName = $_POST['from_name'];
+	$Campaign->vawp = $_POST['webpage_version'];
+	$Campaign->vawpText = $_POST['webpage_version_text'];
+	$Campaign->vawpLinkText = $_POST['webpage_link_text'];
+	$Campaign->permissionReminder = $_POST['permission_reminder'];
+	$Campaign->permissionReminderText = $_POST['permission_reminder_text'];
+	$Campaign->incForwardEmail = $_POST['forward_link'];
+	$Campaign->forwardEmailLinkText = $_POST['forward_link_text'];
+	$Campaign->incSubscribeLink = $_POST['subscribe_link'];
+	$Campaign->subscribeLinkText = $_POST['subscribe_link_text'];
         $Campaign->emailContentType = $_POST['email_type'];
         $Campaign->emailContent = $_POST['email_content'];
         $Campaign->textVersionContent = $_POST['text_version'];
-		$Campaign->styleSheet = $_POST['style_sheet'];
-		$Campaign->lists = $_POST['lists'];
-	echo '<pre>';print_r($Campaign); echo '</pre>';
-
+	$Campaign->styleSheet = $_POST['style_sheet'];
+	$Campaign->lists = $_POST['lists'];
 		
 		// add campaign to Constant Contact account
         $NewCampaign = $ConstantContact->addCampaign($Campaign, $VerifiedAddresses['addresses'][$_POST['from']], $VerifiedAddresses['addresses'][$_POST['reply_to']]);
