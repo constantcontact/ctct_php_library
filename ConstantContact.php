@@ -270,7 +270,7 @@ class ConstantContact{
     }
 
     /**
-     * Get events from a campaign
+     * Get events from a Campaign
      * @param Campaign $Campaign - Campaign to get events for
      * @param string  $eventType - Sends, Forwards,  Bounces, OptOuts, Opens
      * @return array
@@ -281,7 +281,7 @@ class ConstantContact{
     }
 
    /**
-     * Get open events for a contact
+     * Get open events for a Campaign
      * @param Campaign $Campaign
      * @param string $page - optional 'nextLink' from previous getContactOpens call
      * @return array - Up to 50 CampaignEvents and a link to the next page if one exists
@@ -293,8 +293,8 @@ class ConstantContact{
     }
 
     /**
-     * Get forwards events for a contact
-     * @param Contact $Contact
+     * Get forwards events for a Campaign
+     * @param Contact $Campaign
      * @param string $page - optional 'nextLink' from previous getContactForwards call
      * @return array - Up to 50 CampaignEvents and a link to the next page if one exists
      */
@@ -305,8 +305,8 @@ class ConstantContact{
     }
 
     /**
-     * Get bounce events for a contact
-     * @param Contact $Contact
+     * Get bounce events for a Campaign
+     * @param Contact $Campaign
      * @param string $page - optional 'nextLink' from previous getContactBounces call
      * @return array - Up to 50 CampaignEvents and a link to the next page if one exists
      */
@@ -317,8 +317,8 @@ class ConstantContact{
     }
 
     /**
-     * Get opt out events for a contact
-     * @param Contact $Contact
+     * Get opt out events for a Campaign
+     * @param Contact $Campaign
      * @param string $page - optional 'nextLink' from previous getContactOptOuts call
      * @return array - Up to 50 CampaignEvents and a link to the next page if one exists
      */
@@ -329,8 +329,8 @@ class ConstantContact{
     }
 
     /**
-     * Get send events for a contact
-     * @param Contact $Contact
+     * Get send events for a Campaign
+     * @param Contact $Campaign
      * @param string $page - optional 'nextLink' from previous getContactSends call
      * @return array - Up to 50 CampaignEvents and a link to the next page if one exists
      */
