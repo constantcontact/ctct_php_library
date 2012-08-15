@@ -9,4 +9,4 @@ Technical Requirements:
 
 
 Notes:
-This Constant Contact PHP Library supports both basic and OAuth authentication. For more information on authentication as well as usage of this library, please see the wiki.
+This Constant Contact PHP Library supports both OAuth 2.0 (recommended), OAuth 1.0a, and basic authentication. For more information on authentication as well as usage of this library, please see the wiki.
