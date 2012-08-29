@@ -74,7 +74,7 @@ if($username){
     <input type="submit" name="submit" value="Create Campaign" /><br />
 </form>
 
-<?ph
+<?php
 
     if(isset($_POST['campaign_name'])){
         $Campaign = new Campaign();
