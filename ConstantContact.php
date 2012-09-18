@@ -259,6 +259,17 @@ class ConstantContact{
         $CampaignsCollection = new CampaignsCollection($this->CTCTRequest);
         return $CampaignsCollection->getCampaigns($page);
     }
+    
+       /**
+     * Get a Campaign from an ID
+     * @param string $ID - Must be an ID of a campaign
+     * @return Campaign Object of Campaign of given ID
+     */
+    
+    public function getCampaignByID($ID){
+    	$CampaignsCollection = new CampaignsCollection($this->CTCTRequest);
+    	return $CampaignsCollection->getCampaignDetails($this->CTCTRequest->baseUri."/ws/customers/". $this->CTCTRequest->username . "/campaigns/" . $ID);
+    }
 
     /**
      * Get full details for a Campaign
