@@ -839,6 +839,7 @@ class Registrant extends CCObject{
         $this->registrationDate = (isset($params['registrationDate'])) ? $params['registrationDate'] : '';
         $this->guestCount = (isset($params['guestCount'])) ? $params['guestCount'] : '';
         $this->paymentStatus = (isset($params['paymentStatus'])) ? $params['paymentStatus'] : '';
+		$this->ticketId = (isset($params['ticketId'])) ? $params['ticketId'] : '';
         $this->orderAmount = (isset($params['orderAmount'])) ? $params['orderAmount'] : '';
         $this->currencyType = (isset($params['currencyType'])) ? $params['currencyType'] : '';
         $this->paymentType = (isset($params['paymentType'])) ? $params['paymentType'] : '';
@@ -864,6 +865,7 @@ class Registrant extends CCObject{
         $reg['registrationDate'] = (string) $content->Registrant->RegistrationDate;
         $reg['guestCount'] = (string) $content->Registrant->GuestCount;
         $reg['paymentStatus'] = (string) $content->Registrant->PaymentStatus;
+		$reg['ticketId'] = (string) $content->Registrant->TicketId;
         $reg['personalInformation'] = new PersonalInformation(PersonalInformation::createStruct($content->Registrant->PersonalInformation));
         $reg['businessInformation'] = new BusinessInformation(BusinessInformation::createStruct($content->Registrant->BusinessInformation));
         $reg['customInformation1'] = array();
