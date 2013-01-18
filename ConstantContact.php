@@ -528,9 +528,13 @@ class ConstantContact{
      * @param Event $Event - Event Object
      * @return array - up to 50 registrants and a link to the next page if one exists
      */
-    public function getRegistrants(Event $Event){
+    public function getRegistrants(Event $Event, $page = null){
         $EventsCollection = new EventsCollection($this->CTCTRequest);
-        return $EventsCollection->getRegistrants($this->CTCTRequest->baseUri.$Event->link.'/registrants');
+		if($page !== null)
+		{
+			return $EventsCollection->getRegistrants($this->CTCTRequest->baseUri.$page);
+		}
+        return $EventsCollection->getRegistrants($this->CTCTRequest->baseUri.$Event->link.'/registrants?pageNumber=1');
     }
 
     /**
