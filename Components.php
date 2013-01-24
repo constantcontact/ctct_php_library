@@ -556,8 +556,8 @@ class Campaign extends CCObject{
         $campaign['campaignClicks'] = (string) $parsedReturn->content->Campaign->Clicks;
         $campaign['campaignBounces'] = (string) $parsedReturn->content->Campaign->Bounces;
         $campaign['campaignForwards'] = (string) $parsedReturn->content->Campaign->Forwards;
-        $campaign['campaignOptouts'] = (string) $parsedReturn->content->Campaign->OptOuts;
-        $campaign['campaignSpamreports'] = (string) $parsedReturn->content->Campaign->SpamReports;
+        $campaign['campaignOptOuts'] = (string) $parsedReturn->content->Campaign->OptOuts;
+        $campaign['campaignSpamReports'] = (string) $parsedReturn->content->Campaign->SpamReports;
         $campaign['subject'] = (string) $parsedReturn->content->Campaign->Subject;
         $campaign['fromName'] = (string) $parsedReturn->content->Campaign->FromName;
         $campaign['campaignType'] = (string) $parsedReturn->content->Campaign->CampaignType;
