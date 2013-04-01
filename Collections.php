@@ -385,8 +385,9 @@ class CampaignsCollection extends Collection{
         $parsedResponse = simplexml_load_string($response['xml']);
         $events = array();
         foreach($parsedResponse->entry as $entry){
-            $events[] = new CampaignEvent(CampaignEvent::createStruct($entry, $eventType));
+            $events['events'][] = new CampaignEvent(CampaignEvent::createStruct($entry, $eventType));
         }
+	$events['nextLink'] = Utility::findNextLink($parsedResponse);
         return $events;
     }
 
