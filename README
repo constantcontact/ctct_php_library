@@ -1,3 +1,7 @@
+Please note:
+This library uses endpoints of our v1 API. Development is being focused on our v2 API and the related libraries.
+For the newest PHP library, which includes bug fixes and feature enhancements, please visit this repo: https://github.com/constantcontact/php-sdk
+
 In order to use this library you must have:
 1. A valid Constant Contact account. You can register for a free trial with no credit card at http://www.constantcontact.com
 2. A valid API Key for your Constant Contact account, obtained from http://developer.constantcontact.com
@@ -8,5 +12,4 @@ Technical Requirements:
 2. PHP cURL extension (http://php.net/manual/en/book.curl.php)
 
 
-Notes:
 This Constant Contact PHP Library supports both OAuth 2.0 (recommended), OAuth 1.0a, and basic authentication. For more information on authentication as well as usage of this library, please see the wiki.
