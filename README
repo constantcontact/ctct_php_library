@@ -4,7 +4,7 @@ For the newest PHP library, which includes bug fixes and feature enhancements, p
 
 In order to use this library you must have:
 1. A valid Constant Contact account. You can register for a free trial with no credit card at http://www.constantcontact.com
-2. A valid API Key for your Constant Contact account, obtained from http://developer.constantcontact.com
+2. A valid v1 API Key for your Constant Contact account, obtained from http://community.constantcontact.com/t5/Documentation/API-Keys/ba-p/25015
 
 
 Technical Requirements:
