@@ -211,7 +211,7 @@ class ContactsCollection extends Collection{
      */
     public function updateContact(Contact $Contact){
         $contactXml = $Contact->createXml();
-        $response = $this->CTCTRequest->makeRequest($this->CTCTRequest->baseUri.$Contact->link, 'PUT', $Contact->createXml());
+        $response = $this->CTCTRequest->makeRequest($this->CTCTRequest->baseUri.$Contact->link, 'PUT', $contactXml);
         return ($response['info']['http_code'] == 204) ? true : false;
     }
 

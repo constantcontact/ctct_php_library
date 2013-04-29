@@ -229,10 +229,11 @@ class ConstantContact{
      */
     public function searchContactsByEmail($emailAddress){
         $ext = '';
-        if(is_string($emailAddress)){$ext = '?email='.$emailAddress;}
+        if(is_string($emailAddress)){$ext = '?email='.strtolower($emailAddress);}
         if(is_array($emailAddress)){
             for($i=0; $i<count($emailAddress); $i++){
-                $ext .= ($i==0) ? '?email='.$emailAddress[$i] : '&email='.$emailAddress[$i];
+                $loweredAddress = strtolower($emailAddress[$i]);
+                $ext .= ($i==0) ? '?email='.$loweredAddress : '&email='.$loweredAddress;
             }
         }
         $ContactsCollection = new ContactsCollection($this->CTCTRequest);
